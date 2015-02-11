@@ -1,1 +1,21 @@
-i am a readme
+An Ajenti plugin written in Python to manage Linux containers. 
+
+The code was written with handling software instances on a web server in mind, but it works generally all the same.
+
+So far, it works for Debian/Ubuntu - as long as the command `$lxc-list` exists, the code should work.
+
+/instances/
+
+:  __init__.py
+    typical __init__ file, prepares plugin
+
+: lxc.py
+    python module with LXC management functions. **Does not require Ajenti to use!**
+    
+: main.py
+    entry point for the plugin.
+    
+/instances/layout/
+
+: main.xml
+    XML file describing how the plugin should look/what data should be passed.
