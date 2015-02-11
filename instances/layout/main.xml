@@ -1,0 +1,118 @@
+<body>
+	<pad>
+		<vc>
+			<label 
+				text="Note: Please allow the command to finish processing after pressing a button. Pressing buttons multiple times in a row may cause problems."
+				style="italic"
+			 />
+			<button icon="plus" id="btnCreateDialog" text="New Instance" />
+
+			<box>
+								
+				<bind:collection bind="obj_collection" id="collection">
+					<vc>
+						<dt bind="__items">
+							<dtr>
+								<dth text="Container Name" />
+								<dth width="10%" text="Status" />
+								<dth width="1%" text="Actions"/>
+							</dtr>
+						</dt>
+					</vc>
+
+					<bind:template>
+						<dtr>
+							<dtd> 
+								<label bind="name" /> 
+							</dtd>
+							<dtd>
+								<label bind="status" />
+							</dtd>
+							<dtd>
+								<hc>
+									<tooltip text="{Start}">
+										<button id="btnStart" style="mini" icon="play" />
+									</tooltip>
+									<tooltip text="{Restart}">
+										<button id="btnRestart" style="mini" icon="refresh" />
+									</tooltip>
+									<tooltip text="{Stop}">
+										<button id="btnStop" style="mini" icon="stop" />
+									</tooltip>
+									<tooltip text="{Snapshot}">
+										<button id="btnSnapshot" style="mini" icon="camera-retro" />
+									</tooltip>
+									<tooltip text="{Remove}">
+										<button id="btnRemove" style="mini" icon="remove" />
+									</tooltip>
+									<tooltip text="{Freeze}">
+										<button id="btnFreeze" style="mini" icon="lock" />
+									</tooltip>
+									<tooltip text="{Unfreeze}">
+										<button id="btnUnfreeze" style="mini" icon="unlock" />
+									</tooltip>
+								</hc>
+							</dtd>
+						</dtr>
+					</bind:template>
+
+				</bind:collection>
+				
+			</box>
+			
+			<dialog id="dialog" visible="false" buttons="
+				{'id': 'save', 'text': _('Create')},
+				{'id': 'cancel', 'text': _('Cancel')},"
+			>
+				<pad>
+					<vc>
+						<label text="Create a Container" style="bold" />
+						
+						<formline text="{Name}">
+							<hc>
+								<textbox bind="name"/>
+							</hc>
+						</formline>
+						
+						<formline text="{Available Templates}">
+							<hc>
+								<textbox bind="template"/>
+							</hc>
+						</formline>
+						
+						<formline text="{Parameters}">
+							<hc>
+								<textbox bind="parameters"/>
+							</hc>
+						</formline>
+					</vc>
+				</pad>				
+			</dialog>
+			
+			<dialog id="snapDialog" visible="false" buttons="
+				{'id': 'save', 'text': _('Create')},
+				{'id': 'cancel', 'text': _('Cancel')},"
+			>
+				<pad>
+					<vc>
+						<label text="Snapshot options" style="bold" />
+						
+						<formline text="{Comment}">
+							<checkbox bind="cbComment" />
+							<textbox bind="txtComment" visible="False"/>
+						</formline>
+						
+					</vc>
+				</pad>
+			</dialog>
+			
+			<dialog id="confirmDialog" visible="False" buttons="
+				{'id': 'confirm', 'text': _('Confirm'), 'icon': 'ok'},
+				{'id': 'cancel', 'text': _('Cancel'), 'icon': 'remove'},
+			">
+				<label bind:text="message" />
+			</dialog>
+			
+		</vc>
+	</pad>
+</body>
