@@ -4,7 +4,7 @@ The code was written with handling software instances on a web server in mind, b
 
 So far, it works for Debian/Ubuntu - as long as the command `$lxc-list` exists, the code should work.
 
-#/instances/
+# /instances/
 
 :  __init__.py
     typical __init__ file, prepares plugin
@@ -15,7 +15,7 @@ So far, it works for Debian/Ubuntu - as long as the command `$lxc-list` exists, 
 : main.py
     entry point for the plugin.
     
-#/instances/layout/
+# /instances/layout/
 
 : main.xml
     XML file describing how the plugin should look/what data should be passed.
